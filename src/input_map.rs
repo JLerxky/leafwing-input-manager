@@ -9,6 +9,7 @@ use crate::Actionlike;
 
 use bevy::ecs::component::Component;
 use bevy::input::gamepad::Gamepad;
+use bevy::prelude::Resource;
 
 use core::fmt::Debug;
 use petitset::PetitSet;
@@ -69,7 +70,7 @@ use std::marker::PhantomData;
 /// // Removal
 /// input_map.clear_action(Action::Hide);
 ///```
-#[derive(Component, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Component, Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Resource)]
 #[serde(default)]
 pub struct InputMap<A: Actionlike> {
     /// The raw vector of [PetitSet]s used to store the input mapping,
